@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/app/components/theme-provider";
-import "./globals.css";
+import { NavLink } from "@/app/components/nav-link";
+import { ModeToggle } from "@/app/components/mode-toggle";
+
+import "@/app/globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background`}
       >
@@ -34,7 +39,32 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="container mx-auto p-4 min-h-screen">
+            <header className="fixed px-4 inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
+              <div className="flex justify-between items-center container mx-auto">
+                <Link href="/">
+                  <h1>RN</h1>
+                </Link>
+                <nav>
+                  <ul className="flex gap-10">
+                    <li>
+                      <NavLink href="/">Home</NavLink>
+                    </li>
+                    <li>
+                      <NavLink href="/projects">Projects</NavLink>
+                    </li>
+                    <li>
+                      <NavLink href="/contact">Contact</NavLink>
+                    </li>
+                  </ul>
+                </nav>
+                <ModeToggle />
+              </div>
+            </header>
+            <main className="mt-[calc(theme(spacing.6)*2+theme(fontSize.base)*1.5+40px)]">
+              {children}
+            </main>
+          </div>
         </ThemeProvider>
       </body>
     </html>
