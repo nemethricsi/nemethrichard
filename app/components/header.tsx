@@ -5,26 +5,29 @@ import { ModeToggle } from '@/app/components/mode-toggle';
 
 export const Header = () => {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 bg-background/75 px-4 py-6 backdrop-blur-sm">
-      <div className="container mx-auto flex items-center justify-between">
-        <Link href="/">
-          <h1>RN</h1>
+    <header className="fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
+      <nav className="container flex max-w-3xl items-center justify-between">
+        <Link
+          href="/"
+          className="hidden font-serif text-2xl font-bold sm:block"
+        >
+          RN
         </Link>
-        <nav>
-          <ul className="flex gap-10">
-            <li>
-              <NavLink href="/">Home</NavLink>
-            </li>
-            <li>
-              <NavLink href="/projects">Projects</NavLink>
-            </li>
-            <li>
-              <NavLink href="/contact">Contact</NavLink>
-            </li>
-          </ul>
-        </nav>
+
+        <ul className="flex items-center gap-6 font-light text-muted-foreground sm:gap-10">
+          <li className="transition-colors hover:text-foreground">
+            <NavLink href="/">Home</NavLink>
+          </li>
+          <li className="transition-colors hover:text-foreground">
+            <NavLink href="/projects">Projects</NavLink>
+          </li>
+          <li className="transition-colors hover:text-foreground">
+            <NavLink href="/contact">Contact</NavLink>
+          </li>
+        </ul>
+
         <ModeToggle />
-      </div>
+      </nav>
     </header>
   );
 };

@@ -18,10 +18,7 @@ export const NavLink = ({
   return (
     <Link
       href={href}
-      className={cn(
-        'rounded-lg px-4 py-2 text-lg font-medium',
-        isActive && 'underline underline-offset-4',
-      )}
+      className={cn(isActive && 'text-foreground underline underline-offset-4')}
     >
       {children}
     </Link>
