@@ -18,7 +18,10 @@ export const NavLink = ({
   return (
     <Link
       href={href}
-      className={cn(isActive && 'text-foreground underline underline-offset-4')}
+      className={cn(
+        'custom-outline rounded-md sm:px-4 sm:py-2',
+        isActive && 'text-foreground underline underline-offset-4',
+      )}
     >
       {children}
     </Link>
