@@ -1,24 +1,17 @@
 import type { Metadata } from 'next';
 
-import { Geist, Geist_Mono, Inter } from 'next/font/google';
-import { ThemeProvider } from '@/app/components/theme-provider';
+import { Inter, Playfair_Display } from 'next/font/google';
 import { Header } from '@/app/components/header';
+import { Providers } from '@/app/components/providers';
+import { cn } from '@/lib/utils';
+import { Footer } from '@/app/components/footer';
 
 import '@/app/globals.css';
 
-const inter = Inter({
-  variable: '--font-inter',
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
+const playfair = Playfair_Display({
   subsets: ['latin'],
-});
-
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
@@ -34,21 +27,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background antialiased`}
+        className={cn(
+          'flex min-h-screen flex-col font-sans antialiased',
+          inter.variable,
+          playfair.variable,
+        )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="container mx-auto min-h-screen p-4">
-            <Header />
-            <main className="mt-[calc(theme(spacing.6)*2+theme(fontSize.base)*1.5+40px)]">
-              {children}
-            </main>
-          </div>
-        </ThemeProvider>
+        <Providers>
+          <Header />
+          <main className="grow">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
