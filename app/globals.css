@@ -8,7 +8,7 @@ body {
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 40% 98%; /* slate-50 */
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
@@ -35,9 +35,9 @@ body {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222.2 84% 4.9%; /* slate-950 */
     --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
+    --card: 222 47.4% 11.2%; /* slate-900 */
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;

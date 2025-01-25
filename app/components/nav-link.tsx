@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils';
 
 export const NavLink = ({
   href,
@@ -19,8 +19,8 @@ export const NavLink = ({
     <Link
       href={href}
       className={cn(
-        "text-lg font-medium py-2 px-4 rounded-lg",
-        isActive && "bg-accent text-accent-foreground"
+        'rounded-lg px-4 py-2 text-lg font-medium',
+        isActive && 'underline underline-offset-4',
       )}
     >
       {children}
