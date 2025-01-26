@@ -1,8 +1,4 @@
 import { JSX, SVGProps } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-
-import GitHubLogo from '@/public/github.svg';
 
 const navigation = [
   {
