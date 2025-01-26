@@ -67,8 +67,13 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background pr-[calc(100vw-100%)] text-foreground;
   }
+
+  /* Prevent layout shift when Radix Dialog/Dropdown opens */
+  /* body[data-radix-scroll-lock] {
+    @apply overflow-hidden;
+  } */
 
   .title {
     @apply font-serif text-3xl font-bold underline decoration-border/75 decoration-2 underline-offset-8;
