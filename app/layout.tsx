@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { Inter, Playfair_Display } from 'next/font/google';
+import { Inter, Playfair_Display, Ubuntu_Sans_Mono } from 'next/font/google';
 import { Header } from '@/app/components/header';
 import { Providers } from '@/app/components/providers';
 import { cn } from '@/lib/utils';
@@ -12,6 +12,10 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-serif',
+});
+const ubuntu = Ubuntu_Sans_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
 });
 
 export const metadata: Metadata = {
@@ -35,6 +39,7 @@ export default function RootLayout({
           'flex min-h-screen flex-col font-sans antialiased',
           inter.variable,
           playfair.variable,
+          ubuntu.variable,
         )}
       >
         <Providers>
