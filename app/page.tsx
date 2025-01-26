@@ -13,63 +13,25 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { getProjectsMetadata } from '@/app/actions/projects';
+import { ProjectCardList } from '@/app/projects/page';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const mostRecentProjects = await getProjectsMetadata(2);
+
   return (
     <section className="pb-24 pt-24 sm:pt-40">
       <div className="container flex max-w-3xl flex-col gap-8">
         <Intro />
         <section>
-          <h2 className="title mb-12">Recent projects</h2>
+          <h2 className="title mb-10">Recent projects</h2>
+          <ProjectCardList projects={mostRecentProjects} />
           <Link
             href="/projects"
-            className="mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground"
+            className="mt-3 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground"
           >
             <span>All projects</span>
           </Link>
-        </section>
-        <section>
-          <h2 className="title mb-12">Recent posts</h2>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <li>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Blog Post 1</CardTitle>
-                  <CardDescription>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus, doloremque.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline">Read more</Button>
-                </CardFooter>
-              </Card>
-            </li>
-            <li>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Blog Post 1</CardTitle>
-                  <CardDescription>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus, doloremque.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline">Read more</Button>
-                </CardFooter>
-              </Card>
-            </li>
-          </ul>
         </section>
       </div>
     </section>

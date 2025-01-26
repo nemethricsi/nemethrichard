@@ -17,12 +17,6 @@ export type ProjectMetadata = {
 
 const projectsRootDirectory = path.join(process.cwd(), 'contents', 'projects');
 
-export async function getProjectsMetadata() {
-  const files = fs.readdirSync(projectsRootDirectory);
-  const projects = await Promise.all(files.map(getProjectMetadata));
-  return projects;
-}
-
 async function getProjectMetadata(
   fileNameWithExtension: string,
 ): Promise<ProjectMetadata> {
@@ -31,6 +25,16 @@ async function getProjectMetadata(
   const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' });
   const { data } = matter(fileContent);
   return { ...data, slug } as ProjectMetadata;
+}
+
+export async function getProjectsMetadata(limit: number = 0) {
+  const files = fs.readdirSync(projectsRootDirectory);
+  const projects = await Promise.all(files.map(getProjectMetadata));
+  const sortedProjects = projects.sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+  );
+  return limit > 0 ? sortedProjects.slice(0, limit) : sortedProjects;
 }
 
 export async function getProjectBySlug(slug: string) {
