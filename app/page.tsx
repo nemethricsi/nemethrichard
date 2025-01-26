@@ -1,143 +1,25 @@
 import Image from 'next/image';
 import authorImage from '@/public/images/authors/richard.jpg';
-import fmzProjectImage from '@/public/images/fmz.jpg';
-import puszafalatProjectImage from '@/public/images/puszafalat.jpg';
 import Link from 'next/link';
-import { formatDate } from '@/lib/utils';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { getProjectsMetadata } from '@/app/actions/projects';
+import { ProjectCardList } from '@/app/projects/page';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const mostRecentProjects = await getProjectsMetadata(2);
+
   return (
     <section className="pb-24 pt-24 sm:pt-40">
       <div className="container flex max-w-3xl flex-col gap-8">
         <Intro />
         <section>
-          <h2 className="title mb-12">Recent projects</h2>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <li className="h-full">
-              <Link
-                href={`/projects/fmz`}
-                className="h-full hover:drop-shadow-xl"
-              >
-                <Card className="flex h-full flex-col">
-                  <CardHeader className="gap-2">
-                    <CardTitle className="font-serif">fmz.ngo</CardTitle>
-                    <CardDescription>
-                      Website of the Youth for Hungarian Music Association (FMZ
-                      - Fiatalok a Magyar Zenéért).
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <Image
-                      src={fmzProjectImage}
-                      alt="image"
-                      quality={100}
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                      className="h-auto w-full rounded-lg object-cover object-center grayscale transition-transform duration-500 group-hover:scale-105"
-                      priority
-                    />
-                  </CardContent>
-                  <CardFooter>
-                    <p className="text-xs font-light text-muted-foreground">
-                      {formatDate(new Date('2020-02-11').toISOString())}
-                    </p>
-                  </CardFooter>
-                </Card>
-              </Link>
-            </li>
-            <li className="h-full">
-              <Link
-                href={`/projects/puszafalat`}
-                className="h-full hover:drop-shadow-xl"
-              >
-                <Card className="flex h-full flex-col">
-                  <CardHeader className="gap-2">
-                    <CardTitle className="font-serif">puszafalat.eu</CardTitle>
-                    <CardDescription>
-                      Puszafalat contains stories, recipes and songs from the
-                      Hegyköz and the Bodrogköz region.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <Image
-                      src={puszafalatProjectImage}
-                      alt="image"
-                      quality={100}
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                      className="h-auto w-full rounded-lg object-cover object-center grayscale transition-transform duration-500 group-hover:scale-105"
-                      priority
-                    />
-                  </CardContent>
-                  <CardFooter>
-                    <p className="text-xs font-light text-muted-foreground">
-                      {formatDate(new Date('2020-02-11').toISOString())}
-                    </p>
-                  </CardFooter>
-                </Card>
-              </Link>
-            </li>
-          </ul>
+          <h2 className="title mb-10">Recent projects</h2>
+          <ProjectCardList projects={mostRecentProjects} />
           <Link
             href="/projects"
-            className="mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground"
+            className="mt-3 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground"
           >
             <span>All projects</span>
           </Link>
-        </section>
-        <section>
-          <h2 className="title mb-12">Recent posts</h2>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <li>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Blog Post 1</CardTitle>
-                  <CardDescription>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus, doloremque.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline">Read more</Button>
-                </CardFooter>
-              </Card>
-            </li>
-            <li>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Blog Post 1</CardTitle>
-                  <CardDescription>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Repellendus, doloremque.
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="outline">Read more</Button>
-                </CardFooter>
-              </Card>
-            </li>
-          </ul>
         </section>
       </div>
     </section>
