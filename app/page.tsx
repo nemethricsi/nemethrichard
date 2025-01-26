@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import authorImage from '@/public/images/authors/richard.jpg';
-import fmzProjectImage from '@/public/images/fmz.jpg';
-import puszafalatProjectImage from '@/public/images/puszafalat.jpg';
+import fmzProjectImage from '@/public/images/projects/fmz.jpg';
+import puszafalatProjectImage from '@/public/images/projects/puszafalat.jpg';
 import Link from 'next/link';
 import { formatDate } from '@/lib/utils';
 import {
@@ -21,74 +21,6 @@ export default function HomePage() {
         <Intro />
         <section>
           <h2 className="title mb-12">Recent projects</h2>
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <li className="h-full">
-              <Link
-                href={`/projects/fmz`}
-                className="h-full hover:drop-shadow-xl"
-              >
-                <Card className="flex h-full flex-col">
-                  <CardHeader className="gap-2">
-                    <CardTitle className="font-serif">fmz.ngo</CardTitle>
-                    <CardDescription>
-                      Website of the Youth for Hungarian Music Association (FMZ
-                      - Fiatalok a Magyar Zenéért).
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <Image
-                      src={fmzProjectImage}
-                      alt="image"
-                      quality={100}
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                      className="h-auto w-full rounded-lg object-cover object-center grayscale transition-transform duration-500 group-hover:scale-105"
-                      priority
-                    />
-                  </CardContent>
-                  <CardFooter>
-                    <p className="text-xs font-light text-muted-foreground">
-                      {formatDate(new Date('2020-02-11').toISOString())}
-                    </p>
-                  </CardFooter>
-                </Card>
-              </Link>
-            </li>
-            <li className="h-full">
-              <Link
-                href={`/projects/puszafalat`}
-                className="h-full hover:drop-shadow-xl"
-              >
-                <Card className="flex h-full flex-col">
-                  <CardHeader className="gap-2">
-                    <CardTitle className="font-serif">puszafalat.eu</CardTitle>
-                    <CardDescription>
-                      Puszafalat contains stories, recipes and songs from the
-                      Hegyköz and the Bodrogköz region.
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <Image
-                      src={puszafalatProjectImage}
-                      alt="image"
-                      quality={100}
-                      width={0}
-                      height={0}
-                      sizes="100%"
-                      className="h-auto w-full rounded-lg object-cover object-center grayscale transition-transform duration-500 group-hover:scale-105"
-                      priority
-                    />
-                  </CardContent>
-                  <CardFooter>
-                    <p className="text-xs font-light text-muted-foreground">
-                      {formatDate(new Date('2020-02-11').toISOString())}
-                    </p>
-                  </CardFooter>
-                </Card>
-              </Link>
-            </li>
-          </ul>
           <Link
             href="/projects"
             className="mt-8 inline-flex items-center gap-2 text-muted-foreground underline decoration-1 underline-offset-2 transition-colors hover:text-foreground"
