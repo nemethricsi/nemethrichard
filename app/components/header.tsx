@@ -9,7 +9,7 @@ export const Header = () => {
       <nav className="container flex max-w-3xl items-center justify-between">
         <Link
           href="/"
-          className="custom-outline hidden rounded-md px-4 py-1 font-serif text-2xl font-bold sm:block"
+          className="custom-outline hidden rounded-md py-1 font-serif text-2xl font-bold sm:block"
         >
           RN
         </Link>
