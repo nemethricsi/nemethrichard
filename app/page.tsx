@@ -1,18 +1,6 @@
 import Image from 'next/image';
 import authorImage from '@/public/images/authors/richard.jpg';
-import fmzProjectImage from '@/public/images/projects/fmz.jpg';
-import puszafalatProjectImage from '@/public/images/projects/puszafalat.jpg';
 import Link from 'next/link';
-import { formatDate } from '@/lib/utils';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { getProjectsMetadata } from '@/app/actions/projects';
 import { ProjectCardList } from '@/app/projects/page';
 

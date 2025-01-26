@@ -9,18 +9,15 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { formatDate } from '@/lib/utils';
 import { ProjectMetadata } from '@/app/actions/projects';
 import { Button } from '@/components/ui/button';
 import { LinkIcon, CodeIcon, ArrowRightIcon } from 'lucide-react';
-import { GithubIcon } from '@/app/components/icons/github';
 
 export const ProjectCard = ({
   title,
   description,
   image,
   slug,
-  publishedAt,
   githubUrl,
   liveUrl,
 }: ProjectMetadata) => {
