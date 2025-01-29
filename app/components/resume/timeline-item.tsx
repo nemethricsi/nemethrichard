@@ -36,12 +36,11 @@ export const TimelineItem = ({
         <Collapsible>
           <div className="flex items-start justify-between">
             <p className="text-muted-foreground">{description}</p>
-
             <CollapsibleTrigger asChild>
               <Button
                 variant="outline"
                 size="icon"
-                className="flex-shrink-0 bg-card data-[state=open]:rotate-180 data-[state=open]:bg-accent"
+                className="absolute right-0 top-0 flex-shrink-0 bg-card data-[state=open]:rotate-180 data-[state=open]:bg-accent"
               >
                 <ChevronDown className="h-4 w-4" />
               </Button>
