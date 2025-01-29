@@ -2,6 +2,7 @@ import type React from 'react';
 import { Mail, Phone, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { TimelineItem } from '@/app/components/resume/timeline-item';
+import { ClickableEmail } from '@/app/components/resume/clickable-email';
 
 export default function ResumeTimeline() {
   return (
@@ -17,10 +18,7 @@ export default function ResumeTimeline() {
               Full Stack Developer
             </p>
             <div className="flex flex-wrap gap-4 text-muted-foreground">
-              <span className="flex items-center">
-                <Mail className="mr-2 h-5 w-5" />
-                dev@nemethrichard.com
-              </span>
+              <ClickableEmail />
               <span className="flex items-center">
                 <Phone className="mr-2 h-5 w-5" />
                 +36 (20) 936-9932
