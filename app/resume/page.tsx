@@ -7,7 +7,7 @@ export default function ResumeTimeline() {
   return (
     <section className="pb-24 pt-24 sm:pt-40">
       <div className="container flex max-w-3xl flex-col gap-8">
-        <Card className="mx-auto max-w-4xl rounded-lg p-8 shadow-lg">
+        <Card className="mx-auto max-w-4xl rounded-lg p-4 shadow-lg sm:p-8">
           {/* Header */}
           <header className="mb-12">
             <h1 className="mb-2 font-serif text-4xl font-bold text-foreground">

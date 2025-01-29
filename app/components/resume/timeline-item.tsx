@@ -1,8 +1,11 @@
+import { Button } from '@/components/ui/button';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from '@/components/ui/collapsible';
+import { TypographyInlineCode } from '@/components/ui/typography/typography-inline-code';
+import { ChevronDown } from 'lucide-react';
 import type React from 'react';
 
 type TimelineItemProps = {
@@ -30,7 +33,33 @@ export const TimelineItem = ({
         <h3 className="text-xl font-semibold text-foreground">{title}</h3>
         <p className="font-medium text-card-foreground">{company}</p>
         <p className="mb-2 text-muted-foreground">{date}</p>
-        <p className="text-muted-foreground">{description}</p>
+        <Collapsible>
+          <div className="flex items-start justify-between">
+            <p className="text-muted-foreground">{description}</p>
+
+            <CollapsibleTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className="flex-shrink-0 bg-card data-[state=open]:rotate-180 data-[state=open]:bg-accent"
+              >
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </CollapsibleTrigger>
+          </div>
+          <CollapsibleContent>
+            <ul className="my-6 ml-6 list-disc text-muted-foreground [&>li]:mt-2">
+              <li>Handling the design system</li>
+              <li>
+                Creating accessible components with{' '}
+                <TypographyInlineCode>@radix-ui</TypographyInlineCode>
+              </li>
+              <li>handling the design system</li>
+              <li>handling the design system</li>
+              <li>handling the design system</li>
+            </ul>
+          </CollapsibleContent>
+        </Collapsible>
       </div>
     </div>
   );
