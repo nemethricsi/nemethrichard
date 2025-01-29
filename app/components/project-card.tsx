@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { ProjectMetadata } from '@/app/actions/projects';
 import { Button } from '@/components/ui/button';
-import { LinkIcon, ArrowRightIcon, BracesIcon } from 'lucide-react';
+import { LinkIcon, ArrowRightIcon, CodeIcon } from 'lucide-react';
 import {
   Tooltip,
   TooltipTrigger,
@@ -54,7 +54,7 @@ export const ProjectCard = ({
             <TooltipTrigger asChild>
               <Button asChild variant="outline" size="icon">
                 <Link href={githubUrl} target="_blank">
-                  <BracesIcon />
+                  <CodeIcon />
                 </Link>
               </Button>
             </TooltipTrigger>
