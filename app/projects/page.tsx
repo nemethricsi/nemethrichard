@@ -1,5 +1,5 @@
-import { getProjectsMetadata, ProjectMetadata } from '@/app/actions/projects';
-import { ProjectCard } from '@/app/components/project-card';
+import { getProjectsMetadata } from '@/app/actions/projects';
+import { ProjectCardList } from '@/app/components/project-card-list';
 
 export default async function ProjectsPage() {
   const projects = await getProjectsMetadata();
@@ -13,17 +13,3 @@ export default async function ProjectsPage() {
     </section>
   );
 }
-
-export const ProjectCardList = ({
-  projects,
-}: {
-  projects: ProjectMetadata[];
-}) => {
-  return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-      {projects.map((project) => (
-        <ProjectCard key={project.slug} {...project} />
-      ))}
-    </div>
-  );
-};

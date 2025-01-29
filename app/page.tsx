@@ -2,7 +2,7 @@ import Image from 'next/image';
 import authorImage from '@/public/images/authors/richard.jpg';
 import Link from 'next/link';
 import { getProjectsMetadata } from '@/app/actions/projects';
-import { ProjectCardList } from '@/app/projects/page';
+import { ProjectCardList } from '@/app/components/project-card-list';
 
 export default async function HomePage() {
   const mostRecentProjects = await getProjectsMetadata(2);
