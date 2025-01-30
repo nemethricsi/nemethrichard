@@ -1,5 +1,5 @@
 import type React from 'react';
-import { Mail, Phone, MapPin, Briefcase, GraduationCap } from 'lucide-react';
+import { Phone, MapPin, Briefcase, GraduationCap } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import { TimelineItem } from '@/app/components/resume/timeline-item';
 import { ClickableEmail } from '@/app/components/resume/clickable-email';
