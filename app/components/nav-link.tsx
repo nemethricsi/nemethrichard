@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import Link from 'next/link';
+import Link from '@/app/components/link-wapper';
 
 import { cn } from '@/lib/utils';
 

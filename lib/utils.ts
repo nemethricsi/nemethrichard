@@ -12,3 +12,7 @@ export function formatDate(date: string) {
     year: 'numeric',
   });
 }
+
+export function getLocaleFromPathname(pathname: string) {
+  return pathname.split('/')[1];
+}
