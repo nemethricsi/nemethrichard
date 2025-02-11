@@ -1,0 +1,16 @@
+{
+  "homePage": {
+    "title": "Helló, én Richard vagyok.",
+    "description": "Szoftverfejlesztő és terméktervező vagyok Budapesten, Magyarországon. Szenvedélyesen érdekelnek az új technológiák, és szeretek olyan termékeket létrehozni, amelyek hasznosak és élvezetes a használatuk.",
+    "recentProjects": "Legutóbbi projektek",
+    "allProjects": "Összes projekt"
+  },
+  "contactPage": {
+    "title": "Kapcsolat"
+  },
+  "menuItems": {
+    "projects": "Projektek",
+    "contact": "Kapcsolat",
+    "resume": "Önéletrajz"
+  }
+}

@@ -1,5 +1,6 @@
 // import Image from 'next/image';
 import Link from 'next/link';
+import LocalizedLink from '@/app/components/link-wapper';
 
 import {
   Card,
@@ -74,10 +75,10 @@ export const ProjectCard = ({
           </Tooltip>
         </div>
         <Button asChild variant="outline">
-          <Link href={`/projects/${slug}`}>
+          <LocalizedLink href={`/projects/${slug}`}>
             Read more
             <ArrowRightIcon />
-          </Link>
+          </LocalizedLink>
         </Button>
       </CardFooter>
     </Card>
